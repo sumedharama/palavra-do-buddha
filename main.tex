@@ -1,0 +1,100 @@
+\documentclass[
+  final,
+  babelLanguage=portuguese,
+  %desktopVersion,
+  %showtrims,
+  %overleaf,
+]{anecdote}
+
+%\graphicspath{{./assets/photos/300dpi/}}
+\graphicspath{{./assets/photos/92dpi/}}
+
+% Page size: 6x9 inch
+% Body text: 10.5 / 15 pt
+
+\usepackage{local}
+
+%% Details of the book
+%% ===================
+
+\title{A Palavra do Buddha}
+\subtitle{}
+\author{Nyanatiloka Mahathera}
+\publisher{Publicações Sumedhārāma}
+\date{2024-02-10}
+% FIXME: Terceira edição?
+\editionInfo{\textit{Terceira edição portuguesa}, 2024}
+\ISBN{000-000-0000-00-0}% TODO update ISBN
+
+% === Metadata ===
+
+\hypersetup{
+  pdftitle={\thetitle},
+  pdfauthor={\theauthor},
+  pdfcopyright={Copyright (C) 2024, \thePublisher},
+  pdfsubject={},% TODO subject
+  pdfkeywords={},% TODO keywords
+  pdflicenseurl={https://creativecommons.org/licenses/by-nc-nd/4.0/},
+  pdfcontacturl={},
+  pdflang={en},
+}
+
+% \pdfinfo{%
+%   /Title (\thetitle)%
+%   /Author (\theauthor)
+%   /Subject (subject)% TODO subject
+%   /Keywords (keywords)% TODO keywords
+%   /GTS_PDFXVersion (PDF/X-1:2001)%
+%   /GTS_PDFXConformance (PDF/X-1a:2001)%
+% }
+
+%% === Load further packages ===
+
+%% === Hyphenation exceptions and corrections ===
+
+\hyphenation{London}
+
+\begin{document}
+
+\frontmatter
+
+\ifdesktopversion
+\desktopCover{\includegraphics[height=\paperheight]{./desktop-cover.png}}
+\fi
+
+\input{./manuscript/tex/titlepage.tex}
+
+\input{./manuscript/tex/copyright.tex}
+
+\cleartorecto
+\tableofcontents*
+
+\input{./manuscript/tex/00-01-imagem-da-capa.tex}
+\input{./manuscript/tex/00-02-prefacio-11a-inglesa.tex}
+\input{./manuscript/tex/00-03-prefacio-14a-inglesa.tex}
+\input{./manuscript/tex/00-04-prefacio-1a-portugesa.tex}
+\input{./manuscript/tex/00-05-prefacio-3a-portugesa.tex}
+\input{./manuscript/tex/00-06-abreviaturas.tex}
+\input{./manuscript/tex/00-07-a-pronuncia-pali.tex}
+\input{./manuscript/tex/00-08-introducao.tex}
+
+% Page 1 is the first page of the first chapter.
+\mainmatter
+
+\input{./manuscript/tex/01-01-a-primeira-nobre-verdade.tex}
+\input{./manuscript/tex/01-02-a-segunda-nobre-verdade.tex}
+\input{./manuscript/tex/01-03-a-terceira-nobre-verdade.tex}
+\input{./manuscript/tex/01-04-a-quarta-nobre-verdade.tex}
+\input{./manuscript/tex/01-as-quatro-nobres-verdades.tex}
+
+\backmatter
+
+\input{./manuscript/tex/99-glossario.tex}
+\input{./manuscript/tex/99-outras-obras.tex}
+\input{./manuscript/tex/99-buddhist-publication-society.tex}
+
+\input{./manuscript/tex/copyright-details.tex}
+
+\emptyUntilEven
+
+\end{document}
