@@ -1,7 +1,7 @@
 A Palavra do Buddha
 ==============
 
-por Nyanatiloka Mahathera
+por Nyanatiloka Mahāthera
 
 Tradução: Bhikkhu Dhammiko
 

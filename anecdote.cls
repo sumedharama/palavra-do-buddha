@@ -143,12 +143,12 @@
 \definecolor{footnoterule}{gray}{0.5}
 \definecolor{header}{gray}{0.2}
 \definecolor{footer}{gray}{0.2}
-\definecolor{chapternum}{gray}{0.8}
+\definecolor{chapternum}{gray}{0.2}
 \definecolor{chaptertitle}{gray}{0.2}
 \definecolor{chaptertitlefootnote}{gray}{0.4}
 \definecolor{chapterauthor}{gray}{0.3}
 \definecolor{chapternote}{gray}{0.3}
-\definecolor{section}{gray}{0.5}
+\definecolor{section}{gray}{0.2}
 \definecolor{tocleftside}{gray}{0.5}
 \definecolor{tocleftsidepart}{gray}{0.2}
 \definecolor{partname}{gray}{0.5}
@@ -165,13 +165,29 @@
 % Renderer = Basic
 % http://tex.stackexchange.com/questions/20580/how-to-enable-ligatures-for-emdash-endash-in-luatex
 
+% \setmainfont[
+%   SmallCapsFont = Crimson-Roman.otf,
+%   SmallCapsFeatures= { Ligatures = TeX, Letters = SmallCaps, Scale = 0.8, LetterSpace = 0.2 },
+%   ItalicFont = GentiumPlus-Italic.ttf,
+%   BoldFont = GentiumPlus-Bold.ttf,
+%   BoldItalicFont = GentiumPlus-BoldItalic.ttf,
+% ]{GentiumPlus-Regular.ttf}
+
 \setmainfont[
-  SmallCapsFont = Crimson-Roman.otf,
-  SmallCapsFeatures= { Ligatures = TeX, Letters = SmallCaps, Scale = 0.8, LetterSpace = 0.2 },
-  ItalicFont = GentiumPlus-Italic.ttf,
-  BoldFont = GentiumPlus-Bold.ttf,
-  BoldItalicFont = GentiumPlus-BoldItalic.ttf,
-]{GentiumPlus-Regular.ttf}
+  Numbers = Lining,
+  SmallCapsFont = EBGaramondSC12-Regular.otf,
+  ItalicFont = EBGaramond12-Italic.otf,
+  BoldFont = Crimson-Bold.otf,
+  BoldItalicFont = Crimson-BoldItalic.otf,
+]{EBGaramond12-Regular.otf}
+
+\newfontfamily\garamondFont[
+  Numbers = Lining,
+  SmallCapsFont = EBGaramondSC12-Regular.otf,
+  ItalicFont = EBGaramond12-Italic.otf,
+]{EBGaramond12-Regular.otf}
+
+\newfontfamily\garamondAllSCFont{EBGaramondSC08-Regular.otf}
 
 \newfontfamily\crimsonRomanFont[
   SmallCapsFeatures= { LetterSpace = 0.2 },
@@ -189,6 +205,18 @@
   BoldItalicFont = GentiumPlus-BoldItalic.ttf,
 ]{GentiumPlus-Regular.ttf}
 
+\newfontfamily\openSansFont[
+  ItalicFont = OpenSans-Italic.ttf,
+  BoldFont = OpenSans-SemiBold.ttf,
+  BoldItalicFont = OpenSans-SemiBoldItalic.ttf,
+]{OpenSans-Regular.ttf}
+
+\newfontfamily\openSansLightFont[
+  ItalicFont = OpenSans-LightItalic.ttf,
+  BoldFont = OpenSans-Semibold.ttf,
+  BoldItalicFont = OpenSans-SemiboldItalic.ttf,
+]{OpenSans-Light.ttf}
+
 % header and footer
 
 \newcommand\headerFont\crimsonRomanFont
@@ -197,15 +225,15 @@
 
 % chapter and section
 
-\newcommand\partTitleFont\crimsonRomanFont
+\newcommand\partTitleFont\garamondAllSCFont
 
-\newcommand\chapterNameFont\crimsonRomanFont
-\newcommand\chapterTitleFont\crimsonRomanFont
-\newcommand\chapterNumberFont\crimsonRomanFont
-\newcommand\chapterAuthorFont\crimsonRomanFont
-\newcommand\chapterNoteFont\crimsonRomanFont
+\newcommand\chapterNameFont\garamondAllSCFont
+\newcommand\chapterTitleFont\garamondAllSCFont
+\newcommand\chapterNumberFont\garamondFont
+\newcommand\chapterAuthorFont\garamondFont
+\newcommand\chapterNoteFont\garamondFont
 
-\newcommand\sectionFont\crimsonRomanFont
+\newcommand\sectionFont\garamondAllSCFont
 
 % quote
 
@@ -220,7 +248,7 @@
 
 \newcommand{\chapterNameSize}{\@setfontsize          \chapterNameSize          {22}{24}}
 \newcommand{\chapterNumberSize}{\@setfontsize        \chapterNumberSize        {22}{24}}
-\newcommand{\chapterTitleSize}{\@setfontsize         \chapterTitleSize         {13}{16.5}}
+\newcommand{\chapterTitleSize}{\@setfontsize         \chapterTitleSize         {16}{24}}
 \newcommand{\chapterTitleFootnoteSize}{\@setfontsize \chapterTitleFootnoteSize {16}{30}}
 \newcommand{\chapterAuthorSize}{\@setfontsize        \chapterAuthorSize        {12}{14}}
 \newcommand{\chapterNoteSize}{\@setfontsize          \chapterNoteSize          {13}{15}}
@@ -529,10 +557,17 @@ philo-sophical munindo amaravati thai-land}
 }
 
 % for sutta verses and other short stanzas
-\renewenvironment{verse}
-{\begin{centering}%
-    \itshape}%
-{\par\end{centering}}
+\renewenvironment{verse}%
+{\list{}{%
+    \listparindent 0pt
+    \itemindent    \listparindent
+    \leftmargin    \quoteMargin
+    \rightmargin   0pt
+    \parsep        8pt
+    \topsep        0pt
+    \partopsep     0pt}%
+\item[]}%
+{\endlist}
 
 \newcommand{\verseRef}[1]{%
   {\centering\itshape\footnotesize #1\par}%
@@ -542,10 +577,11 @@ philo-sophical munindo amaravati thai-land}
 \renewenvironment{quote}%
 {\list{}{%
     \itshape
+    \openSansLightFont\fontsize{8.5}{16}\selectfont
     \listparindent 0pt
     \itemindent    \listparindent
     \leftmargin    \quoteMargin
-    \rightmargin   \quoteMargin
+    \rightmargin   0pt
     \parsep        8pt
     \topsep        0pt
     \partopsep     0pt}%
@@ -1142,45 +1178,30 @@ philo-sophical munindo amaravati thai-land}
 }
 
 \newlength\chapterTitleLeftSkip
-\setlength{\chapterTitleLeftSkip}{17pt}
+\setlength{\chapterTitleLeftSkip}{0pt}
 
 \makechapterstyle{lowtitle}{
   \chapterstyle{default}
-  \setlength{\beforechapskip}{30mm}
-  \setlength{\chapterTitleLeftSkip}{17pt}
+  \setlength{\beforechapskip}{0pt}
   \renewcommand\printchaptername{}
   \renewcommand\chapternamenum{}
   \renewcommand\chapnumfont{\chapterNumberFont\chapterNumberSize}
   \renewcommand\printchapternum{%
+    \centering
     \chapnumfont\color{chapternum}%
-    \hspace*{\chapterTitleLeftSkip}\thechapter%
+    \thechapter%
   }
   \setlength{\midchapskip}{2\onelineskip}
   \renewcommand\afterchapternum{\par\nobreak\vskip \midchapskip}
   \renewcommand\printchapternonum{}
   \renewcommand\chaptitlefont{\chapterTitleFont\chapterTitleSize}
   \renewcommand*\printchaptertitle[1]{%
-    \raggedright\hspace*{\chapterTitleLeftSkip}%
-    \parbox{\linewidth - \chapterTitleLeftSkip}{%
-      \raggedright\chaptitlefont\color{chaptertitle}%
-      \textls*{\MakeUppercase{##1}}%
-      \ifchapterfootnote%
-        \hspace*{2pt}\theChapterFootnoteMark%
-      \fi%
-      \ifchapterauthor%
-        \vskip 0.5\onelineskip%
-        \chapterAuthorFmt{\theChapterAuthor}%
-        \global\chapterauthorfalse%
-      \fi%
-      \ifchapternote%
-        \vskip 0.5\onelineskip%
-        \chapterNoteFmt{\theChapterNote}%
-        \global\chapternotefalse%
-      \fi%
-    }%
-    \ifchapterfootnote%
-      \theChapterFootnoteText%
-      \global\chapterfootnotefalse%
+    \centering\chaptitlefont\color{chaptertitle}%
+    ##1%
+    \ifchapternote%
+      \vskip 1\onelineskip%
+      \chapterNoteFmt{\theChapterNote}%
+      \global\chapternotefalse%
     \fi%
   }
   \setlength{\afterchapskip}{2.5\onelineskip}
@@ -1189,15 +1210,12 @@ philo-sophical munindo amaravati thai-land}
 
 \makechapterstyle{hightitle}{
   \chapterstyle{lowtitle}
-  \setlength{\beforechapskip}{0pt}
-  \setlength{\chapterTitleLeftSkip}{0pt}
+  \setlength{\beforechapskip}{-10pt}
   \renewcommand*\printchaptertitle[1]{%
-    {%
-      \centering\chaptitlefont\color{chaptertitle}%
-      \textls*{\MakeUppercase{##1}}%
-      \par
-    }%
+    \centering\chaptitlefont\color{chaptertitle}%
+    ##1%
   }
+  \setlength{\afterchapskip}{1.5\onelineskip}
 }
 
 \makechapterstyle{bellatrix}{%
@@ -1576,24 +1594,54 @@ philo-sophical munindo amaravati thai-land}
 %\renewcommand*{\thesection}{\roman{section}}
 %\setsechook{\setsecnumformat{\thesection.\space}}
 
+\RequirePackage[outline]{contour}
+
+\usepackage{ulem}
+\normalem % use classical emph
+
+\newcommand\prul[1]{%
+  \begingroup%
+  \renewcommand{\ULdepth}{1.8pt}%
+  \renewcommand{\ULthickness}{0.5pt}%
+  \contourlength{0.5pt}%
+  \uline{\phantom{#1}}\llap{\contour{white}{#1}}%
+  \endgroup%
+}
+
 \newcommand\sectionFmt[1]{%
-  \sectionFont\fontsize{11.5}{14}\selectfont%
+  \sectionFont\fontsize{12.5}{15}\selectfont%
   \color{section}%
-  \centering
-  \textls{\MakeUppercase{#1}}%
+  \centering%
+  #1%
+  \vspace*{-10pt}%
+  \rule{\linewidth}{0.4pt}%
+  \par
+}
+
+\newcommand\sectionSubtitle[1]{%
+  {%
+    \par
+    \openSansFont\fontsize{9}{9}\selectfont%
+    \color{section}%
+    \centering%
+    \emph{#1}%
+    \par
+  }%
 }
 
 \newcommand\subsectionFmt[1]{%
-  \sectionFont\fontsize{10}{13}\selectfont%
+  \openSansFont\fontsize{9}{15}\selectfont%
   \color{section}%
-  \memRTLraggedright%
-  \textls{\MakeUppercase{#1}}%
+  \centering%
+  \bfseries
+  \MakeUppercase{#1}%
 }
 
 \newcommand\subsubsectionFmt[1]{%
-  \gentiumFont\normalsize\itshape\color[gray]{0.1}%
-  \memRTLraggedright%
-  #1
+  \openSansFont\fontsize{9}{15}\selectfont%
+  \color{section}%
+  \centering%
+  \MakeUppercase{#1}%
 }
 
 \setsecheadstyle{\sectionFmt}
