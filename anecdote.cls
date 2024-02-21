@@ -220,8 +220,8 @@
 % header and footer
 
 \newcommand\headerFont\crimsonRomanFont
-\newcommand\footerFont\gentiumFont
-\newcommand\pageNumFont\gentiumFont
+\newcommand\footerFont\garamondFont
+\newcommand\pageNumFont\garamondFont
 
 % chapter and section
 
@@ -241,7 +241,7 @@
 
 % toc
 
-\newcommand\tocFont\crimsonRomanFont
+\newcommand\tocFont\garamondFont
 \newcommand\tocFontOldNum\crimsonRomanFontOldNum
 
 % Some default font sizes, use \renewcommand to adjust
@@ -487,6 +487,19 @@ philo-sophical munindo amaravati thai-land}
   partopsep=0pt,
 ]%
 }{\end{itemize}}
+
+\newenvironment{packedenumerate}%
+{\vspace*{-6.5pt}%
+  \begin{enumerate}[
+  itemindent=0pt,
+  leftmargin=12pt,
+  rightmargin=0pt,
+  itemsep=4pt,
+  topsep=0pt,
+  parsep=0pt,
+  partopsep=0pt,
+]%
+}{\end{enumerate}}
 
 \newcommand\speakerName[1]{%
   % The hangindent only works with alternating speakers.
@@ -987,7 +1000,7 @@ philo-sophical munindo amaravati thai-land}
 \contentsmargin{-5pt}
 
 \newlength\tocLeftWidth
-\setlength\tocLeftWidth{10mm}
+\setlength\tocLeftWidth{5mm}
 
 % Roman numerals in the chapter title TOC chapter entries.
 %\renewcommand\thechapter{\Roman{chapter}}
@@ -1047,14 +1060,14 @@ philo-sophical munindo amaravati thai-land}
 {}
 
 \titlecontents{chapter}[\tocLeftWidth]
-{\addvspace{15pt}\fontsize{13}{13}\gentiumFont\selectfont}%
+{\addvspace{15pt}\fontsize{13}{13}\tocFont\selectfont}%
 {\contentsmargin{0pt}}
 {\contentsmargin{0pt}%
 \itshape}
 {\hfill\normalsize\tocFont\thecontentspage}
 
 \titlecontents{appendix}[\tocLeftWidth]
-{\addvspace{30pt}\fontsize{13}{13}\crimsonRomanFont\bfseries\selectfont}%
+{\addvspace{30pt}\fontsize{13}{13}\tocFont\bfseries\selectfont}%
 {\contentsmargin{0pt}%
 \itshape}
 {\contentsmargin{0pt}%
