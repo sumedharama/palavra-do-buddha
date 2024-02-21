@@ -590,16 +590,17 @@ philo-sophical munindo amaravati thai-land}
 \renewenvironment{quote}%
 {\list{}{%
     \itshape
-    \openSansLightFont\fontsize{8.5}{16}\selectfont
+    \openSansLightFont\fontsize{9}{16.5}\selectfont
     \listparindent 0pt
     \itemindent    \listparindent
     \leftmargin    \quoteMargin
     \rightmargin   0pt
     \parsep        8pt
     \topsep        0pt
-    \partopsep     0pt}%
+    \partopsep     \parskip}%
 \item[]}%
-{\endlist}
+{\endlist
+\vspace*{0.5\parskip}}
 
 \newcommand{\quoteTitle}[1]{%
   {%
@@ -1632,9 +1633,10 @@ philo-sophical munindo amaravati thai-land}
 }
 
 \newcommand\sectionSubtitle[1]{%
+  \vspace*{-2.5pt}%
   {%
     \par
-    \openSansFont\fontsize{9}{9}\selectfont%
+    \openSansFont\fontsize{9.5}{13}\selectfont%
     \color{section}%
     \centering%
     \emph{#1}%
@@ -1679,8 +1681,8 @@ philo-sophical munindo amaravati thai-land}
 
 % === normalsize ===
 
-\def\BOOK@fontSizePt{11}
-\def\BOOK@lineHeightPt{16}
+\def\BOOK@fontSizePt{11.5}
+\def\BOOK@lineHeightPt{16.5}
 
 \renewcommand{\normalsize}{%
   \@setfontsize\normalsize\BOOK@fontSizePt\BOOK@lineHeightPt
@@ -1725,8 +1727,8 @@ philo-sophical munindo amaravati thai-land}
 %\setlrmargins{*}{20mm}{*}%
 %\setulmargins{*}{*}{1.701}% Tall Pentagon, 1.701
 
-\settypeblocksize{162mm}{95mm}{*}
-\setlrmargins{*}{15mm}{*}
+\settypeblocksize{162mm}{99mm}{*}
+\setlrmargins{*}{13mm}{*}
 \setulmargins{50pt}{*}{*}
 
 \setlength{\footskip}{30pt}
