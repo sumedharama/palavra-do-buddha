@@ -1,6 +1,7 @@
 # Project output
 output/
 main.pdf
+cover.pdf
 doc/*.html
 
 # Emacs temp files
