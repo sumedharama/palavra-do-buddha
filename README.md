@@ -7,9 +7,9 @@ Tradução: Bhikkhu Dhammiko
 
 Terceira Edição Portuguesa, 2024
 
-ISBN for paperback: `000-000-0000-00-0`
+ISBN for paperback: `978-989-8994-57-8`
 
-ISBN for ebooks: `000-0-00000-000-0`
+ISBN for ebooks: `978-989-8994-58-5`
 
 Based on [prophecy-template].
 

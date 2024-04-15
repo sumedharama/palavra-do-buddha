@@ -14,7 +14,7 @@
 :source: https://profound-labs.github.io/
 //:keywords: subject, topic
 :copyright: CC-BY-NC-ND 4.0
-:isbn: 000-0-00000-000-0
+:isbn: 978-989-8994-58-5
 :identifier: isbn:{isbn}
 :imagesdir: assets/photos/92dpi-ebook-sRGB
 :includes: manuscript/asciidoc
